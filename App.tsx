@@ -3,7 +3,7 @@ import { View, Button, Alert, Platform, PermissionsAndroid } from 'react-native'
 import RNBlobUtil from 'react-native-blob-util';
 import FileViewer from 'react-native-file-viewer';
 
-const API_URL = "https://your-api-url.com/platform/test-get-user-events-pdf"; // Update with your actual API URL
+const API_URL = "https://cs-umbraco.createstaging.com/api/app/test-get-user-events-pdf"; // Update with your actual API URL
 
 const requestStoragePermission = async () => {
   if (Platform.OS === 'android') {

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "561702291357",
+    "project_id": "authpractice-4d758",
+    "storage_bucket": "authpractice-4d758.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561702291357:android:f0130fa9d81645d30bd174",
+        "android_client_info": {
+          "package_name": "com.mushipractice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "561702291357-gjusj4o7d2iitrlk7fnbj3n708od5opt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mushipractice",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "561702291357-atn744kbjjv87e50ofco850sdqgesbos.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAN5QzM6ck4mGtaoHoQ0J2dpsU85eZpvNk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "561702291357-atn744kbjjv87e50ofco850sdqgesbos.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

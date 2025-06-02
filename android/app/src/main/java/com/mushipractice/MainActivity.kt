@@ -1,4 +1,4 @@
-package com.awesomeproject
+package com.mushipractice
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate

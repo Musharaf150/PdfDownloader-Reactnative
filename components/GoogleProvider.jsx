@@ -5,7 +5,7 @@ import { getAuth, GoogleAuthProvider, signInWithCredential } from '@react-native
 
 const GoogleProvider = () => {
   GoogleSignin.configure({
-  webClientId: '561702291357-atn744kbjjv87e50ofco850sdqgesbos.apps.googleusercontent.com',
+  webClientId: process.env.WEB_CLIENT_ID,
 });
 
 const signInWithGoogle = async () => {

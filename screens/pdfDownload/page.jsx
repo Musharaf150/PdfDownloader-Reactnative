@@ -1,10 +1,38 @@
 import { getAuth, signOut } from '@react-native-firebase/auth';
-import React from 'react';
-import { View, Button, Alert, Platform, PermissionsAndroid, TouchableOpacity, Text } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Button, Alert, Platform, PermissionsAndroid, TouchableOpacity, Text, useAnimatedValue, Animated, Easing } from 'react-native';
 import RNBlobUtil from 'react-native-blob-util';
 import FileViewer from 'react-native-file-viewer';
 
 const API_URL = "https://your-api-url.com/platform/test-get-user-events-pdf"; // Update with your actual API URL
+
+const FadeInView = props => {
+  const fadeAnim = useAnimatedValue(0); // Initial value for opacity: 0
+
+  useEffect(() => {
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 1000,
+      useNativeDriver: true,
+    }).start();
+//     Animated.timing(fadeAnim, {
+//   toValue: 100,
+//   easing: Easing.back(),
+//   duration: 2000,
+//   useNativeDriver: true,
+// }).start();
+  }, [fadeAnim]);
+
+  return (
+    <Animated.View // Special animatable View
+      style={{
+        ...props.style,
+        opacity: fadeAnim, // Bind opacity to animated value
+      }}>
+      {props.children}
+    </Animated.View>
+  );
+};
 
 const requestStoragePermission = async () => {
     if (Platform.OS === 'android') {
@@ -83,14 +111,30 @@ const PdfDownload = () => {
             .catch(error => console.error('Sign out error:', error));
     }
 
+    const user = getAuth().currentUser;
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
             <TouchableOpacity onPress={handleSignOut}
-            style={{ position: 'absolute', top: 20, right: 20, 
-            backgroundColor: 'blue', borderRadius: 5, padding: 5 }}>
+                style={{
+                    position: 'absolute', top: 20, right: 20,
+                    backgroundColor: 'blue', borderRadius: 5, padding: 5
+                }}>
                 <Text style={{ fontSize: 20, color: 'white' }}>Sign out</Text>
             </TouchableOpacity>
             <Button title="Download PDF" onPress={downloadPdf} />
+            <Text>
+                {`Welcome, ${user.displayName}!`}
+            </Text>
+            <FadeInView
+                style={{
+                    width: 250,
+                    height: 50,
+                    backgroundColor: 'powderblue',
+                }}>
+                <Text style={{ fontSize: 28, textAlign: 'center' }}>
+                    Fading in
+                </Text>
+            </FadeInView>
         </View>
     );
 };
